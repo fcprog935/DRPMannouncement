@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anduril Arsenal-2 Coverage</title>
+<style>:root{--color-bg:#f6f8f8;--color-panel:#ffffff;--color-fg:#14211f;--color-fg-muted:#56656a;--color-border-line:#d9e1e1;--color-ok:#1f7a4d;--color-warn:#b0670a;--color-bad:#b8342b;
+--c1:#0f766e;--c2:#4d7c0f;--c3:#0369a1;--c4:#a16207;--c5:#7c3aed;--c6:#be185d;
+--cds-chart-muted:#9aa8ab;--cds-chart-status-critical:#c0392b;--cds-chart-grid:#e6ecec;--cds-chart-axis:#c3cdce;--cds-chart-reference:#8b9a9c;
+--cds-surface-popover:#ffffff;--cds-border:#d9e1e1;--cds-shadow-popover:0 6px 20px rgba(16,33,31,.14);--cds-text-secondary:#56656a;
+--font-anthropic-sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--font-anthropic-serif:Georgia,"Times New Roman",serif;
+--cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:16px;--cds-font-size-title:26px;--cds-font-weight-medium:600;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:12px;--cds-gap-lg:20px;--cds-gap-xl:32px;--cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-md:12px;--cds-pad-lg:20px;--cds-pad-xl:32px;
+--cds-radius:8px;--cds-dur-slow:400ms;--cds-ease-out:cubic-bezier(.2,.7,.2,1);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--color-bg:#0f1716;--color-panel:#16211f;--color-fg:#e8efee;--color-fg-muted:#9fb0b0;--color-border-line:#2a3936;--color-ok:#4cc38a;--color-warn:#e2a043;--color-bad:#f0776b;
+--c1:#2dd4bf;--c2:#a3e635;--c3:#38bdf8;--c4:#facc15;--c5:#a78bfa;--c6:#f472b6;--cds-chart-muted:#6b7c7e;--cds-chart-status-critical:#f0776b;--cds-chart-grid:#22302e;--cds-chart-axis:#3a4a48;--cds-chart-reference:#7d8f8f;
+--cds-surface-popover:#1c2927;--cds-border:#2a3936;--cds-shadow-popover:0 6px 20px rgba(0,0,0,.5);--cds-text-secondary:#9fb0b0;color-scheme:dark}}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:14px}
+#dash-root{max-width:1200px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-left,0px)) 64px max(16px,env(safe-area-inset-right,0px))}
+[hidden]{display:none!important}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>window.ARS_DATA = {"coverage": [{"id": "A01", "date": "2026-09-30", "outlet": "CNBC", "byline": "", "headline": "Elon Musk, Palmer Luckey and Newt Gingrich to help Pentagon with warfare initiative, Hegseth says", "url": "https://www.cnbc.com/2026/09/30/musk-luckey-gingrich-pentagon-hegseth-.html", "tier": "National", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A02", "date": "2026-09-30", "outlet": "TechCrunch", "byline": "Dominic-Madori Davis", "headline": "The Pentagon taps Elon Musk and Palmer Luckey to help decide what the military should do next", "url": "https://techcrunch.com/2026/09/30/the-pentagon-taps-elon-musk-and-palmer-luckey-to-help-decide-what-the-military-should-do-next/", "tier": "Business & tech", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian", "headlineFigure": "None", "messengers": "Pete Hegseth", "sourcesCoded": "Yes", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A03", "date": "2026-10-01", "outlet": "Asia Times", "byline": "Brett Wilkins", "headline": "Hegseth taps three to lead 'Future of Warfare' project", "url": "https://asiatimes.com/2026/10/hegseth-taps-three-to-lead-future-of-warfare-project/", "tier": "International", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A04", "date": "2026-10-05", "outlet": "ZeroHedge", "byline": "Tyler Durden", "headline": "Trump To Unveil Anduril Deal, Bringing Submarine Parts Factory To Baltimore", "url": "https://www.zerohedge.com/military/trump-unveil-anduril-deal-bringing-submarine-parts-factory-baltimore", "tier": "Business & tech", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point; Political credit & taxpayer stake", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": "Undated preview; placed the day before the event"}, {"id": "A05", "date": "2026-10-06", "outlet": "DefenseScoop", "byline": "Jon Harper", "headline": "White House, Anduril announce plans for new 'software-defined' shipyard to help build attack submarines", "url": "https://defensescoop.com/2026/10/06/white-house-anduril-announce-new-shipyard-baltimore-county/", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Software-defined shipbuilding; Jobs & Sparrows Point", "headlineFigure": "None", "messengers": "Anna Kelly; Chris Brose; Donald Trump; Senior administration official", "sourcesCoded": "Yes", "drpmNamed": "No", "dateNote": ""}, {"id": "A06", "date": "2026-10-06", "outlet": "Breaking Defense", "byline": "Diana Stancy", "headline": "Anduril launches new shipyard to manufacture components for Virginia-class subs", "url": "https://breakingdefense.com/2026/10/anduril-establishes-new-shipyard-to-manufacture-components-for-virginia-class-subs/", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Jobs & Sparrows Point", "headlineFigure": "None", "messengers": "Chris Brose; Kari Wilkinson; Adm. Daryl Caudle; Donald Trump; Senior administration official", "sourcesCoded": "Yes", "drpmNamed": "No", "dateNote": ""}, {"id": "A07", "date": "2026-10-06", "outlet": "Maritime Executive", "byline": "Staff", "headline": "Anduril and US Navy Invest $6.6B for New Submarine Manufacturing Yard", "url": "https://maritime-executive.com/article/anduril-and-us-navy-invest-6-6b-for-new-submarine-manufacturing-yard", "tier": "Defense & maritime trade", "tone": "Positive", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point; Submarine capacity", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "Yes", "drpmNamed": "No", "dateNote": ""}, {"id": "A08", "date": "2026-10-06", "outlet": "USNI News", "byline": "", "headline": "Anduril to Build New Submarine Component Facility", "url": "https://news.usni.org/2026/10/06/anduril-to-build-submarine-component-facility", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Submarine capacity", "narratives": "Submarine capacity", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A09", "date": "2026-10-06", "outlet": "CNBC", "byline": "", "headline": "Anduril lands $2.9 billion Navy submarine shipyard contract days after Luckey joins Pentagon weapons group", "url": "https://www.cnbc.com/2026/10/06/anduril-navy-submarine-shipyard-contract.html", "tier": "National", "tone": "Mixed", "toneBasis": "Headline", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian; Submarine capacity", "headlineFigure": "$2.9B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A10", "date": "2026-10-06", "outlet": "The Washington Post", "byline": "", "headline": "Trump steers nearly $7B to shipbuilding in deal with weapons maker Anduril", "url": "https://www.washingtonpost.com/technology/2026/10/06/trump-steers-nearly-7b-shipbuilding-deal-with-weapons-maker-anduril/", "tier": "National", "tone": "Mixed", "toneBasis": "Headline", "narrative": "Political credit & taxpayer stake", "narratives": "Political credit & taxpayer stake; Luckey ethics & Project Meridian", "headlineFigure": "~$7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A11", "date": "2026-10-06", "outlet": "Bloomberg", "byline": "", "headline": "Anduril Invests $3.7 Billion in Maryland Shipyard to Boost Submarine Production", "url": "https://www.bloomberg.com/news/articles/2026-10-06/drone-maker-anduril-pushes-into-submarines-with-maryland-factory", "tier": "National", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Jobs & Sparrows Point", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A12", "date": "2026-10-06", "outlet": "The Washington Times", "byline": "", "headline": "Trump announces $6.6B initiative to build submarine parts at Baltimore shipyard", "url": "https://www.washingtontimes.com/news/2026/oct/6/trump-announces-66b-initiative-build-submarine-parts-baltimore/", "tier": "National", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Jobs & Sparrows Point; Political credit & taxpayer stake", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A13", "date": "2026-10-06", "outlet": "Al Jazeera", "byline": "AFP and Reuters", "headline": "US firm gets $2.9bn sub deal after boss joins war study with Musk", "url": "https://www.aljazeera.com/news/2026/10/6/us-firm-gets-2-9bn-sub-deal-after-boss-joins-war-study-with-musk", "tier": "International", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian; Submarine capacity", "headlineFigure": "$2.9B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A14", "date": "2026-10-06", "outlet": "Fox News", "byline": "Morgan Phillips", "headline": "Anduril wins $6.6B Navy deal to boost Virginia-class submarine output", "url": "https://www.foxnews.com/politics/trump-turns-emerging-tech-giant-multi-billion-bid-ramp-us-submarine-production", "tier": "National", "tone": "Mixed", "toneBasis": "Partial text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian; Submarine capacity", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A15", "date": "2026-10-06", "outlet": "The Washington Sun", "byline": "Joe Gould", "headline": "Anduril Plans a $3.7 Billion Baltimore Shipyard for Virginia-Class Submarines", "url": "https://www.washingtonsun.com/defense/anduril-plans-baltimore-shipyard-for-submarines", "tier": "National", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Execution risk & incentives", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A16", "date": "2026-10-06", "outlet": "Quartz", "byline": "", "headline": "Anduril wins $2.9B Navy contract for Maryland submarine plant", "url": "https://qz.com/anduril-navy-contract-submarine-maryland-tradepoint-100626", "tier": "Business & tech", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Jobs & Sparrows Point", "headlineFigure": "$2.9B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A17", "date": "2026-10-06", "outlet": "WYPR", "byline": "John Lee", "headline": "Anduril plans a shipyard and 3,100 jobs at Tradepoint Atlantic in Baltimore County", "url": "https://www.wypr.org/wypr-news/2026-10-06/anduril-plans-a-shipyard-and-3-100-jobs-at-tradepoint-atlantic-in-baltimore-county", "tier": "Maryland local", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point; Execution risk & incentives", "headlineFigure": "None", "messengers": "Chris Brose; Wes Moore; Jonathan Sachs; Kathy Klausmeier", "sourcesCoded": "Yes", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A18", "date": "2026-10-06", "outlet": "CBS News Baltimore", "byline": "Bryan Lynn", "headline": "$3.7 billion investment, 3,100 jobs announced by Anduril Industries for new Baltimore County shipyard", "url": "https://www.cbsnews.com/baltimore/news/maryland-3-7-billion-anduril-industries-baltimore-county-tradepoint-atlantic/", "tier": "Maryland local", "tone": "Positive", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point", "headlineFigure": "$3.7B", "messengers": "Wes Moore; Kathy Klausmeier", "sourcesCoded": "Yes", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A19", "date": "2026-10-06", "outlet": "WMAR-2 News", "byline": "Amanda Engel and Siobhan Garrett", "headline": "'A tremendous victory': Trump visits Baltimore County to announce new $3.7B shipyard plans", "url": "https://www.wmar2news.com/news/region/baltimore-county/anduril-plans-3-7b-submarine-shipyard-at-sparrows-point-bringing-3-100-jobs-to-baltimore-county", "tier": "Maryland local", "tone": "Positive", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point; Political credit & taxpayer stake", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A20", "date": "2026-10-06", "outlet": "Baltimore Fishbowl", "byline": "Marcus Dieterle", "headline": "Anduril Industries plans $3.7B massive Baltimore County shipyard", "url": "https://baltimorefishbowl.com/stories/military-tech-company-anduril-industries-plans-3-7b-2m-square-foot-shipyard-at-tradepoint-atlantic-in-baltimore-county/", "tier": "Maryland local", "tone": "Positive", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A21", "date": "2026-10-06", "outlet": "WorkBoat", "byline": "Ben Hayden", "headline": "Anduril plans $3.7 billion Maryland shipyard for submarine production", "url": "https://www.workboat.com/anduril-plans-3-7-billion-maryland-shipyard-for-submarine-production", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A22", "date": "2026-10-06", "outlet": "Spectrum News", "byline": "", "headline": "Trump announces launch of new military shipyard in Baltimore", "url": "https://spectrumlocalnews.com/us/snplus/military/2026/10/06/anduril-arsenal-2--3-7-billion-baltimore-investment", "tier": "National", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point; Political credit & taxpayer stake", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A23", "date": "2026-10-07", "outlet": "Defense One", "byline": "Lauren C. Williams", "headline": "Anduril wades into traditional shipbuilding arena with major submarine play", "url": "https://www.defenseone.com/business/2026/10/anduril-wades-traditional-shipbuilding-arena-major-submarine-play/416459/", "tier": "Defense & maritime trade", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Political credit & taxpayer stake; Software-defined shipbuilding", "headlineFigure": "None", "messengers": "Donald Trump; Vice Adm. Robert Gaucher; Chris Brose", "sourcesCoded": "Yes", "drpmNamed": "No", "dateNote": ""}, {"id": "A24", "date": "2026-10-07", "outlet": "Fox News", "byline": "Morgan Phillips", "headline": "New details reveal how Trump's 40% stake in $6.6B submarine deal will work", "url": "https://www.foxnews.com/politics/trump-reveals-surprise-american-taxpayer-stake-new-6-6b-submarine-deal", "tier": "National", "tone": "Positive", "toneBasis": "Partial text", "narrative": "Political credit & taxpayer stake", "narratives": "Political credit & taxpayer stake; Jobs & Sparrows Point", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A25", "date": "2026-10-07", "outlet": "Atlanta Black Star", "byline": "Mary Spiller", "headline": "'Circus': White House Yanks Wes Moore Off the Mic After His Own Billion-Dollar Win", "url": "https://atlantablackstar.com/2026/10/07/wes-moore-off-the-mic-after-his-own-billion-dollar-win/", "tier": "National", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Political credit & taxpayer stake", "narratives": "Political credit & taxpayer stake; Jobs & Sparrows Point", "headlineFigure": "None", "messengers": "Wes Moore; Brian Schimpf; Guy Guzzone; White House official", "sourcesCoded": "Yes", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A26", "date": "2026-10-07", "outlet": "ShipUniverse", "byline": "Editorial team", "headline": "Anduril and Navy Commit $6.6B to New Submarine Industrial Yard as Virginia Production Lags Target", "url": "https://www.shipuniverse.com/news/anduril-and-navy-commit-6-6b-to-new-submarine-industrial-yard-as-virginia-production-lags-target/", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Execution risk & incentives", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A27", "date": "2026-10-07", "outlet": "Naval Technology", "byline": "Jangoulun Singsit", "headline": "US Navy, Anduril plan $6.6bn Arsenal-2 shipyard in Maryland", "url": "https://www.naval-technology.com/news/arsenal-2-shipyard-us-navy/", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A28", "date": "2026-10-07", "outlet": "The Next Web", "byline": "Ana-Maria Stanciuc", "headline": "Anduril to build $3.7bn Baltimore shipyard for US Navy submarine parts", "url": "https://thenextweb.com/news/anduril-3-7bn-shipyard-baltimore-virginia-class-submarines", "tier": "Business & tech", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian; Submarine capacity", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A29", "date": "2026-10-07", "outlet": "The Hill", "byline": "", "headline": "Wes Moore clashes with White House over $3.7 billion Anduril investment event", "url": "https://thehill.com/homenews/administration/6132064-white-house-donald-trump-wes-moore-baltimore-maryland-shipyard/", "tier": "National", "tone": "Neutral", "toneBasis": "Headline", "narrative": "Political credit & taxpayer stake", "narratives": "Political credit & taxpayer stake", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": "Date estimated from event coverage"}, {"id": "A30", "date": "2026-10-08", "outlet": "ENR", "byline": "Bryan Gottlieb", "headline": "Anduril Plans $3.7B Maryland Shipyard to Expand Navy Submarine Production", "url": "https://www.enr.com/articles/63811-anduril-plans-37b-maryland-shipyard-to-expand-navy-submarine-production", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Jobs & Sparrows Point", "narratives": "Jobs & Sparrows Point; Execution risk & incentives", "headlineFigure": "$3.7B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A31", "date": "2026-10-08", "outlet": "TechRadar", "byline": "Efosa Udinmwen", "headline": "Anduril nets $2.9 billion US Navy submarine shipyard contract, days after CEO Palmer Luckey signs up to Pentagon weapons group", "url": "https://www.techradar.com/pro/anduril-nets-usd2-9-billion-us-navy-submarine-shipyard-contract-days-after-ceo-palmer-luckey-signs-up-to-pentagon-weapons-group", "tier": "Business & tech", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian", "headlineFigure": "$2.9B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A32", "date": "2026-10-08", "outlet": "The Defense Post", "byline": "Jodesz Gavilan", "headline": "Anduril, US Navy Back $6.6 Billion Submarine Production Push", "url": "https://thedefensepost.com/2026/10/08/us-anduril-submarine-production/amp/", "tier": "Defense & maritime trade", "tone": "Neutral", "toneBasis": "Full text", "narrative": "Submarine capacity", "narratives": "Submarine capacity; Software-defined shipbuilding", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A33", "date": "2026-10-09", "outlet": "Responsible Statecraft", "byline": "Dan Grazier", "headline": "Palmer Luckey building submarines is not the craziest idea", "url": "https://responsiblestatecraft.org/anduril-submarines-military/", "tier": "Opinion", "tone": "Mixed", "toneBasis": "Full text", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian; Submarine capacity; Execution risk & incentives", "headlineFigure": "None", "messengers": "", "sourcesCoded": "Yes", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A34", "date": "2026-10-10", "outlet": "The Washington Post (Opinion)", "byline": "", "headline": "Anduril can help fix submarine production without government ownership", "url": "https://www.washingtonpost.com/opinions/2026/10/10/anduril-can-help-fix-submarine-production-without-government-ownership/", "tier": "Opinion", "tone": "Mixed", "toneBasis": "Headline", "narrative": "Political credit & taxpayer stake", "narratives": "Political credit & taxpayer stake; Submarine capacity", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": "Headline taken from the page address"}, {"id": "A35", "date": "2026-10-12", "outlet": "The Motley Fool", "byline": "", "headline": "$2.9 Billion Contract in Hand, Anduril May Already Be America's Second-Biggest Navy Warship Builder", "url": "https://www.fool.com/investing/2026/10/12/anduril-americas-second-biggest-navy-shipbuilder/", "tier": "Business & tech", "tone": "Positive", "toneBasis": "Headline", "narrative": "Submarine capacity", "narratives": "Submarine capacity", "headlineFigure": "$2.9B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A36", "date": "2026-10-13", "outlet": "WYPR", "byline": "John Lee", "headline": "Anduril makes its case to the Baltimore County Council to build its Sparrows Point shipyard", "url": "https://www.wypr.org/wypr-news/2026-10-13/anduril-makes-its-case-to-the-baltimore-county-council-to-build-its-sparrows-point-shipyard", "tier": "Maryland local", "tone": "Positive", "toneBasis": "Full text", "narrative": "Execution risk & incentives", "narratives": "Execution risk & incentives; Jobs & Sparrows Point", "headlineFigure": "None", "messengers": "Mike Ertel; Jonathan Sachs; David Frash; Darius Baktash", "sourcesCoded": "Yes", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A37", "date": "2026-10-15", "outlet": "CNBC", "byline": "", "headline": "Anduril CEO defends contracts amid Palmer Luckey ethics questions", "url": "https://www.cnbc.com/2026/10/15/anduril-ceo-contracts-palmer-luckey-ethics.html", "tier": "National", "tone": "Mixed", "toneBasis": "Headline", "narrative": "Luckey ethics & Project Meridian", "narratives": "Luckey ethics & Project Meridian", "headlineFigure": "None", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": ""}, {"id": "A38", "date": "2026-10-15", "outlet": "Shephard Media", "byline": "Harry McNeil", "headline": "Anduril's $6.6bn wager on fixing America's submarine bottleneck", "url": "https://www.shephardmedia.com/news/naval-warfare/andurils-66bn-wager-on-fixing-americas-submarine-bottleneck/", "tier": "Defense & maritime trade", "tone": "Mixed", "toneBasis": "Partial text", "narrative": "Execution risk & incentives", "narratives": "Execution risk & incentives; Submarine capacity", "headlineFigure": "$6.6B", "messengers": "", "sourcesCoded": "No", "drpmNamed": "Not checked", "dateNote": "Paywalled; opening read"}], "events": [{"date": "2026-09-09", "event": "Iran says it captured an Anduril-built U.S. Navy underwater drone in the Strait of Hormuz", "phase": "Before window", "url": ""}, {"date": "2026-09-30", "event": "Hegseth names Luckey, Musk, and Gingrich to lead Project Meridian", "phase": "In window", "url": ""}, {"date": "2026-10-06", "event": "White House and Anduril unveil Arsenal-2; Navy awards contract worth up to $2.9B", "phase": "In window", "url": ""}, {"date": "2026-10-07", "event": "Trump's 40% government stake claim drives follow-up stories", "phase": "In window", "url": ""}, {"date": "2026-10-13", "event": "Anduril makes its case to the Baltimore County Council", "phase": "In window", "url": ""}, {"date": "2026-10-15", "event": "Anduril CEO Brian Schimpf defends contracts amid ethics questions", "phase": "In window", "url": ""}, {"date": "2026-10-27", "event": "WYPR: shipyard project draws war industry criticism", "phase": "After window", "url": "https://www.wypr.org/wypr-news/2026-10-27/andurils-baltimore-county-shipyard-project-draws-war-industry-criticism"}, {"date": "2026-10-28", "event": "Washington Post op-ed on how Arsenal-2 can help U.S. submarine capacity", "phase": "After window", "url": "https://www.washingtonpost.com/opinions/2026/10/28/how-anduril-arsenal-2-shipyard-can-help-us-submarine-capacity/"}, {"date": "2026-11-02", "event": "Baltimore County Council clears the shipyard's tax break", "phase": "After window", "url": "https://www.wypr.org/wypr-news/2026-11-02/anduril-shipyard-cleared-for-launch-by-baltimore-county-council"}, {"date": "2026-11-11", "event": "Baltimore Sun asks whether Maryland has enough welders for Arsenal-2", "phase": "After window", "url": "https://baltimoresun.com/2026/11/11/anduril-shipyard-marylands-welder-shortage"}], "messengers": [{"name": "Donald Trump", "role": "President", "camp": "White House"}, {"name": "Anna Kelly", "role": "White House principal deputy press secretary", "camp": "White House"}, {"name": "Senior administration official", "role": "Unnamed, White House briefing", "camp": "White House"}, {"name": "White House official", "role": "Unnamed", "camp": "White House"}, {"name": "Pete Hegseth", "role": "Defense secretary", "camp": "Pentagon"}, {"name": "Chris Brose", "role": "Anduril president and chief strategy officer", "camp": "Anduril"}, {"name": "Brian Schimpf", "role": "Anduril co-founder and CEO", "camp": "Anduril"}, {"name": "David Frash", "role": "Anduril director of state and local government relations", "camp": "Anduril"}, {"name": "Wes Moore", "role": "Maryland governor", "camp": "Maryland officials"}, {"name": "Kathy Klausmeier", "role": "Baltimore County executive", "camp": "Maryland officials"}, {"name": "Jonathan Sachs", "role": "Baltimore County economic development director", "camp": "Maryland officials"}, {"name": "Mike Ertel", "role": "Baltimore County Council chair", "camp": "Maryland officials"}, {"name": "Guy Guzzone", "role": "Maryland state senator", "camp": "Maryland officials"}, {"name": "Vice Adm. Robert Gaucher", "role": "Oversees Navy submarine construction (DRPM)", "camp": "Navy"}, {"name": "Adm. Daryl Caudle", "role": "Chief of naval operations", "camp": "Navy"}, {"name": "Kari Wilkinson", "role": "President, HII Newport News Shipbuilding", "camp": "Shipbuilders"}, {"name": "Darius Baktash", "role": "Baltimore County resident", "camp": "Public"}], "factchecks": [{"topic": "Deal value", "consensus": "$6.6B combined: $3.7B Anduril private capital plus a Navy contract worth up to $2.9B", "variants": "\"Nearly $7B\" (Washington Post, Responsible Statecraft); headlines often lead with $3.7B or $2.9B alone", "order": 1}, {"topic": "Jobs", "consensus": "3,100+ direct, permanent jobs (Anduril, WYPR, Maritime Executive)", "variants": "13,000 (White House); 14,000+ supported (CBS Baltimore); 11,000+ indirect (Breaking Defense)", "order": 2}, {"topic": "What the yard builds", "consensus": "Heavy Virginia-class components, starting with torpedo tubes, for Electric Boat and Newport News", "variants": "\"Autonomous submarines\" (CBS Baltimore); Trump's \"autonomous sub\" remark", "order": 3}, {"topic": "Capacity added", "consensus": "About 9 million labor hours a year, roughly 15% more Virginia-class output (senior official, Vice Adm. Gaucher)", "variants": "Few outlets tie the 15% figure to the two-boats-a-year goal", "order": 4}, {"topic": "Virginia-class build rate", "consensus": "Below the Navy goal of two boats a year", "variants": "About 1.0 (GAO via Breaking Defense), 1.1 to 1.2 (Shephard), 1.3 (Responsible Statecraft)", "order": 5}, {"topic": "Government stake", "consensus": "Trump said the government gets a 40% stake in a new shipyard subsidiary", "variants": "No terms released at the event (Defense One); Fox News reported details Oct. 7", "order": 6}, {"topic": "Timeline", "consensus": "Groundbreaking by early 2027; operations by 2030", "variants": "Anduril told the county council hiring could start in 2029 (WYPR)", "order": 7}]};</script>
+<script>
+// Minimal stand-in for the dashboard runtime, so the page runs as a plain HTML file.
+window.dash = (function () {
+  const FILES = window.ARS_DATA, calcs = {}, cache = {}, draws = {}, made = new Map();
+  function data(id) {
+    if (FILES[id]) return { status: 'ok', data: FILES[id], columns: Object.keys(FILES[id][0] || {}) };
+    if (calcs[id]) {
+      if (!(id in cache)) cache[id] = calcs[id].fn(...calcs[id].inputs.map((i) => data(i).data));
+      return { status: 'ok', data: cache[id] };
+    }
+    return { status: 'missing', data: [], message: 'No source ' + id };
+  }
+  function runOne(name) {
+    const def = draws[name]; if (!def) return;
+    document.querySelectorAll('[data-draw="' + name + '"]').forEach((el) => {
+      try {
+        if (typeof def === 'function') def(el);
+        else { if (!made.has(el)) { el.replaceChildren(); made.set(el, def.mount ? def.mount(el) : undefined); } if (def.update) def.update(el, made.get(el)); }
+      } catch (e) { console.error('draw ' + name, e); }
+    });
+  }
+  function runAll() { Object.keys(draws).forEach(runOne); }
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(runAll, 120); });
+  document.addEventListener('DOMContentLoaded', runAll);
+  return {
+    data, calc: (id, o) => { calcs[id] = o; }, loader: () => {},
+    draw: (name, fn) => { if (fn) draws[name] = fn; else runOne(name); },
+    onData: (fn) => { document.addEventListener('DOMContentLoaded', fn); },
+    colors: ['var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)', 'var(--c5)', 'var(--c6)'],
+    refresh: () => {}, params: () => ({}), setParams: () => {}, resetParams: () => {}, setLink: () => {}
+  };
+})();
+</script>
+</head>
+<body>
+<div id="dash-root">
+<style>
+.ars { display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+.ars-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); max-width: 62rem; }
+.ars-eyebrow { font-size: var(--cds-font-size-caption); letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); }
+.ars-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+.ars-lede { font-size: var(--cds-font-size-heading); line-height: 1.45; margin: 0; max-width: 60ch; }
+.ars-lede b { font-variant-numeric: tabular-nums; }
+.ars-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; max-width: 72ch; line-height: 1.5; }
+.ars-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: var(--cds-gap-md); }
+.ars-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.ars-kpi-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: .04em; text-transform: uppercase; }
+.ars-kpi-value { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2.4rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.ars-kpi-value small { font-size: 1.1rem; color: var(--color-fg-muted); }
+.ars-kpi-sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.4; }
+.ars-kpi-flag { border-color: var(--color-warn); }
+.ars-h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+.ars-sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; line-height: 1.45; }
+.ars-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.ars-chart { position: relative; width: 100%; min-height: 14rem; }
+.ars-chart svg { display: block; width: 100%; overflow: visible; }
+.ars-chart text { fill: var(--cds-text-secondary); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.ars-chart .ars-strong { fill: var(--color-fg); }
+.ars-chart .tick line, .ars-chart .domain { stroke: var(--cds-chart-axis); }
+.ars-chart .ars-grid line { stroke: var(--cds-chart-grid); }
+.ars-tip { position: absolute; pointer-events: none; z-index: 5; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); font-size: var(--cds-font-size-caption); line-height: 1.45; max-width: 18rem; color: var(--color-fg); }
+.ars-tip .t { font-weight: var(--cds-font-weight-medium); }
+.ars-tip .m { color: var(--cds-text-secondary); }
+.ars-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; padding: 0; list-style: none; }
+.ars-legend li { display: inline-flex; align-items: center; gap: 6px; }
+.ars-sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.sw-pos { background: var(--color-ok); } .sw-neu { background: var(--cds-chart-muted); } .sw-mix { background: var(--color-warn); } .sw-neg { background: var(--color-bad); }
+.sw-navy { background: var(--cds-chart-status-critical); } .sw-other { background: var(--cds-chart-muted); }
+.ars-events { margin: 0; padding-left: 1.4rem; display: flex; flex-direction: column; gap: 4px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.45; }
+.ars-events b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.ars-defs { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px var(--cds-gap-md); font-size: var(--cds-font-size-caption); line-height: 1.45; }
+.ars-defs dt { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+.ars-defs dd { margin: 0; color: var(--color-fg-muted); }
+.ars-read { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--cds-gap-md); margin: 0; padding: 0; list-style: none; }
+.ars-read li { display: flex; flex-direction: column; gap: 6px; padding-top: var(--cds-pad-md); border-top: 2px solid var(--color-fg); min-width: 0; }
+.ars-read h3 { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); line-height: 1.35; text-wrap: balance; }
+.ars-read p { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+.ars-tablewrap { overflow-x: auto; width: 100%; }
+.ars-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); min-width: 44rem; }
+.ars-table th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 8px 10px; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.ars-table td { padding: 8px 10px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; line-height: 1.4; }
+.ars-table td.num, .ars-table td.dt { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ars-table a { color: var(--color-fg); text-decoration: underline; text-decoration-color: var(--color-border-line); text-underline-offset: 2px; }
+.ars-table a:hover { text-decoration-color: var(--color-fg); }
+.ars-pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px; white-space: nowrap; border: 1px solid var(--color-border-line); }
+.ars-pill.Positive { border-color: var(--color-ok); color: var(--color-ok); }
+.ars-pill.Mixed { border-color: var(--color-warn); color: var(--color-warn); }
+.ars-pill.Negative { border-color: var(--color-bad); color: var(--color-bad); }
+.ars-pill.Neutral { color: var(--color-fg-muted); }
+.ars-basis { display: block; color: var(--color-fg-muted); font-size: 11px; margin-top: 2px; }
+.ars-filters { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.ars-chiprow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ars-chiprow > span { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); min-width: 4.5rem; }
+.ars-chip { font: inherit; font-size: var(--cds-font-size-caption); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--color-border-line); background: var(--color-bg); color: var(--color-fg); cursor: pointer; }
+.ars-chip:hover { border-color: var(--color-fg-muted); }
+.ars-chip[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+.ars-chip:focus-visible, .ars-bar:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.ars-bar { cursor: pointer; }
+.ars-count { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.ars details summary { cursor: pointer; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ars details p, .ars details li { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.55; max-width: 75ch; }
+[data-dash-source-state=refreshing] { opacity: .5; }
+.ars-story { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--cds-gap-xl); align-items: start; }
+.ars-stage-wrap { grid-column: 2; grid-row: 1; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+.ars-stage { position: relative; height: min(70vh, 560px); min-height: 300px; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); box-sizing: border-box; }
+.ars-stage svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.ars-stage text { fill: var(--cds-text-secondary); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.ars-stage .ars-strong { fill: var(--color-fg); }
+.ars-chapters { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; }
+.ars-chapter { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; gap: var(--cds-gap-sm); opacity: .4; }
+.ars-chapter:first-child { min-height: 60vh; justify-content: flex-start; padding-top: 10vh; }
+.ars-chapter:last-child { min-height: 70vh; }
+.ars-chapter.is-active { opacity: 1; }
+.ars-chapter h2 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 1.6rem; line-height: 1.2; text-wrap: balance; }
+.ars-chapter p { margin: 0; font-size: var(--cds-font-size-body); line-height: 1.6; max-width: 46ch; }
+.ars-chapter b { font-variant-numeric: tabular-nums; }
+.ars-chapter .ars-aside { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ars-step { font-size: var(--cds-font-size-caption); letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); }
+@media (prefers-reduced-motion: no-preference) { .ars-chapter { transition: opacity var(--cds-dur-slow) var(--cds-ease-out); } }
+@media (max-width: 760px) {
+  .ars-story { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .ars-stage-wrap { grid-column: 1; grid-row: 1; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--color-bg); padding-block: 8px; }
+  .ars-stage { height: 42vh; min-height: 240px; }
+  .ars-chapters { grid-row: 2; }
+  .ars-chapter { min-height: 60vh; padding: var(--cds-pad-lg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); margin-block: 20vh; justify-content: flex-start; }
+  .ars-chapter:first-child { padding-top: var(--cds-pad-lg); margin-top: 8px; min-height: 40vh; }
+}
+</style>
+
+<div class="ars">
+  <header class="ars-head" id="overview">
+    <span class="ars-eyebrow">Media analysis · Sept. 22 to Oct. 20, 2026 · Prepared for the DRPM Submarines proposal</span>
+    <h1 class="ars-title">Anduril Arsenal-2 Coverage</h1>
+    <p class="ars-lede">On Oct. 6, the White House and Anduril announced a $6.6 billion submarine component shipyard at Sparrows Point. It was a submarine industrial base story, but the Navy barely appeared in it. Scroll to see how the coverage played out.</p>
+    <p class="ars-note">Built from a hand-coded sample of <span data-draw="k" data-k="total" data-source="kpis" data-field="total" data-row="0">—</span> pieces from <span data-draw="k" data-k="outlets" data-source="kpis" data-field="outlets" data-row="0">—</span> outlets found through web search, not a full media census.</p>
+  </header>
+
+  <section class="ars-story" id="story">
+    <div class="ars-stage-wrap">
+      <div class="ars-stage" data-draw="stage" data-source="coverage daily camps frametier figures"></div>
+    </div>
+    <div class="ars-chapters">
+      <article class="ars-chapter is-active" data-step="0" id="ch-day">
+        <span class="ars-step">The spike</span>
+        <h2>One big day, then a week-long tail</h2>
+        <p><b data-draw="k" data-k="launchDay" data-source="kpis" data-field="launchDay" data-row="0">—</b> of the <b data-draw="k" data-k="total" data-source="kpis" data-field="total" data-row="0">—</b> pieces ran on Oct. 6 alone, <b><span data-draw="k" data-k="launchShare" data-source="kpis" data-field="launchShare" data-row="0">—</span>%</b> of the sample. The White House event set the agenda, and follow-ups faded within a week.</p>
+        <p class="ars-aside">Each square is one piece, stacked by date and colored by tone. Point at a square for the outlet and headline.</p>
+      </article>
+      <article class="ars-chapter" data-step="1" id="ch-voices">
+        <span class="ars-step">The voices</span>
+        <h2>Others did the talking</h2>
+        <p>Maryland officials were quoted <b data-draw="cq" data-camp="Maryland officials" data-source="camps" data-field="quotes" data-where="camp=Maryland officials">—</b> times, the White House <b data-draw="cq" data-camp="White House" data-source="camps" data-field="quotes" data-where="camp=White House">—</b>, and Anduril <b data-draw="cq" data-camp="Anduril" data-source="camps" data-field="quotes" data-where="camp=Anduril">—</b>. The Navy was quoted <b data-draw="cq" data-camp="Navy" data-source="camps" data-field="quotes" data-where="camp=Navy">—</b> times.</p>
+        <p>Vice Adm. Robert Gaucher, who oversees submarine construction, appeared in Defense One. No defense trade piece we checked named the DRPM or the SIB program office.</p>
+      </article>
+      <article class="ars-chapter" data-step="2" id="ch-frames">
+        <span class="ars-step">The frames</span>
+        <h2>Capacity stayed in the trade press</h2>
+        <p>Defense and maritime trade outlets carried the submarine capacity case in <b data-draw="ft" data-n="Submarine capacity" data-t="Defense &amp; maritime trade" data-source="frametier" data-field="pieces" data-where="narrative=Submarine capacity&amp;tier=Defense %26 maritime trade">—</b> pieces. National outlets leaned on political credit and the taxpayer stake, in <b data-draw="ft" data-n="Political credit &amp; taxpayer stake" data-t="National" data-source="frametier" data-field="pieces" data-where="narrative=Political credit %26 taxpayer stake&amp;tier=National">—</b> pieces. Local press told the jobs story.</p>
+      </article>
+      <article class="ars-chapter" data-step="3" id="ch-ethics">
+        <span class="ars-step">The controversy</span>
+        <h2>The Luckey question followed the deal</h2>
+        <p>Six days before the announcement, Defense Secretary Pete Hegseth named Palmer Luckey to lead Project Meridian. <b data-draw="k" data-k="ethicsPieces" data-source="kpis" data-field="ethicsPieces" data-row="0">—</b> pieces raised it, <b><span data-draw="k" data-k="ethicsShare" data-source="kpis" data-field="ethicsShare" data-row="0">—</span>%</b> of the sample, and it returned when Anduril's CEO defended the company's contracts on Oct. 15.</p>
+        <p>Still, <b data-draw="k" data-k="negative" data-source="kpis" data-field="negative" data-row="0">—</b> pieces were outright negative. Criticism stayed inside mixed coverage.</p>
+      </article>
+      <article class="ars-chapter" data-step="4" id="ch-figures">
+        <span class="ars-step">The numbers</span>
+        <h2>Four price tags in the headlines</h2>
+        <p>Headlines led with $3.7 billion <b data-draw="fg" data-f="$3.7B" data-source="figures" data-field="pieces" data-where="figure=$3.7B">—</b> times, $6.6 billion <b data-draw="fg" data-f="$6.6B" data-source="figures" data-field="pieces" data-where="figure=$6.6B">—</b> times, and $2.9 billion <b data-draw="fg" data-f="$2.9B" data-source="figures" data-field="pieces" data-where="figure=$2.9B">—</b> times. The number an outlet picked signaled its frame: local investment, the combined total, or the Navy contract tied to the ethics story.</p>
+      </article>
+      <article class="ars-chapter" data-step="5" id="ch-navy">
+        <span class="ars-step">The gap</span>
+        <h2>A Navy story without the Navy</h2>
+        <p>Of the <b data-draw="k" data-k="sourcesCoded" data-source="kpis" data-field="sourcesCoded" data-row="0">—</b> pieces we coded for sources, <b data-draw="k" data-k="navyQuoted" data-source="kpis" data-field="navyQuoted" data-row="0">—</b> quoted a Navy official. The capacity proof point, about 15% more Virginia-class output, came mostly from an unnamed senior official.</p>
+        <p class="ars-aside">Red squares quote a Navy official. Gray squares were coded for sources but quote no one from the Navy.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="ars-card" id="penta-read">
+    <h2 class="ars-h2">What this means for the DRPM</h2>
+    <p class="ars-sub">Penta's read of the coverage, as of Nov. 11, 2026.</p>
+    <ul class="ars-read">
+      <li><h3>Partners will keep out-messaging the program office</h3><p>The White House staged the event, Anduril supplied the quotes, and Maryland politics supplied the drama. Vice Adm. Robert Gaucher surfaced only in trade press. Future partner announcements need a Navy spokesperson plan agreed in advance.</p></li>
+      <li><h3>The capacity metric went unclaimed</h3><p>The clearest proof point, about 15% more Virginia-class output from 9 million added labor hours a year, was attributed mostly to an unnamed senior official. The DRPM should own that number and tie it to the two-boats-a-year and Columbia goals.</p></li>
+      <li><h3>National reach came through conflict, not capability</h3><p>Ethics and political-credit frames carried the story into national outlets, while the industrial base case stayed in trade publications. Breaking into mainstream coverage takes a people story, not a contracting story.</p></li>
+      <li><h3>Inconsistent numbers invite confusion</h3><p>Coverage cited four different deal values and job counts ranging from 3,100 to 14,000. A one-page fact sheet with a single figure set would give reporters one version to repeat.</p></li>
+      <li><h3>Workforce is the next wave of coverage</h3><p>Follow-on stories turned to welders and local hiring. That is the bridge to the SIB workforce pipeline narrative and to audiences beyond defense circles.</p></li>
+    </ul>
+  </section>
+
+  <section class="ars-card" id="facts">
+    <h2 class="ars-h2">Where the reporting disagreed</h2>
+    <p class="ars-sub">Key facts as most outlets reported them, and the variants that circulated.</p>
+    <div class="ars-tablewrap">
+      <table class="ars-table" data-source="factchecks" data-row-key="topic">
+        <thead><tr><th data-field="topic">Topic</th><th data-field="consensus">Most outlets reported</th><th data-field="variants">Variants in circulation</th></tr></thead>
+        <tbody data-draw="facts"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ars-card" id="log">
+    <h2 class="ars-h2">Coverage log</h2>
+    <p class="ars-sub">Look up any coded piece, newest first. Headlines link to the original. Filter by tier, tone, or frame.</p>
+    <div class="ars-filters" data-draw="chips" data-source="coverage"></div>
+    <span class="ars-count" data-draw="logcount">—</span>
+    <div class="ars-tablewrap">
+      <table class="ars-table" data-source="coverage" data-row-key="id">
+        <thead><tr><th data-field="date">Date</th><th data-field="outlet">Outlet</th><th data-field="headline">Headline</th><th data-field="tier">Tier</th><th data-field="tone">Tone</th><th data-field="narratives">Frames</th></tr></thead>
+        <tbody data-draw="logrows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ars-card" id="after">
+    <h2 class="ars-h2">What came after the window</h2>
+    <p class="ars-sub">Later coverage that shows where the story is heading.</p>
+    <ol class="ars-events" data-draw="afterlist" data-source="events"></ol>
+  </section>
+
+  <details id="method">
+    <summary>How this sample was built</summary>
+    <ul>
+      <li>Pieces were found through web search for Sept. 22 to Oct. 20, 2026, a window that places the Oct. 6 announcement near its center. It is a sample of prominent coverage, not a full census. Penta.live or a Meltwater export would give complete volume and reach.</li>
+      <li>Tone is coded toward the deal and Anduril. Where only the headline could be read, the log says so under the tone.</li>
+      <li>Sources quoted were coded only for pieces whose full text was read for quotes. The DRPM check covers the four defense trade pieces read in full.</li>
+      <li>Owned channels (the Anduril and Maryland governor releases) and wire pickups are excluded. One undated preview (ZeroHedge) is placed on Oct. 5, and The Hill's piece on Gov. Wes Moore is dated from event coverage.</li>
+    </ul>
+  </details>
+</div>
+
+<script>
+// ---------- shared helpers ----------
+window.ARS = window.ARS || { f: { tier: null, tone: null, narr: null } };
+window.ARS.TONES = ['Positive', 'Neutral', 'Mixed', 'Negative'];
+window.ARS.toneColor = { Positive: 'var(--color-ok)', Neutral: 'var(--cds-chart-muted)', Mixed: 'var(--color-warn)', Negative: 'var(--color-bad)' };
+window.ARS.apDate = function (iso, withYear) {
+  const m = ['Jan.', 'Feb.', 'March', 'April', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
+  const d = new Date(iso + 'T00:00:00Z');
+  return m[d.getUTCMonth()] + ' ' + d.getUTCDate() + (withYear ? ', ' + d.getUTCFullYear() : '');
+};
+window.ARS.split = (s) => (s || '').split(';').map((x) => x.trim()).filter(Boolean);
+window.ARS.redraw = function () { ['chips', 'logrows', 'logcount'].forEach((n) => dash.draw(n)); };
+window.ARS.tip = function (box) {
+  let t = box.querySelector('.ars-tip');
+  if (!t) { t = document.createElement('div'); t.className = 'ars-tip'; t.hidden = true; box.appendChild(t); }
+  return {
+    show(ev, lines) {
+      t.replaceChildren(...lines.map((l, i) => { const d = document.createElement('div'); d.className = i === 0 ? 't' : 'm'; d.textContent = l; return d; }));
+      t.hidden = false;
+      const r = box.getBoundingClientRect(); const x = ev.clientX - r.left, y = ev.clientY - r.top;
+      const w = t.offsetWidth, h = t.offsetHeight;
+      t.style.left = Math.max(0, Math.min(r.width - w, x + 12)) + 'px';
+      t.style.top = Math.max(0, y - h - 10) + 'px';
+    },
+    hide() { t.hidden = true; }
+  };
+};
+window.ARS.placeholder = function (el, st, minH) {
+  el.replaceChildren();
+  if (st === 'error') { const p = document.createElement('p'); p.className = 'ars-sub'; p.textContent = 'Failed to load'; el.appendChild(p); }
+  else { el.textContent = '—'; }
+};
+
+// ---------- calcs ----------
+dash.calc('kpis', {
+  inputs: ['coverage', 'messengers'],
+  title: 'Headline figures',
+  description: 'Totals, announcement-day share, Navy voices quoted, and ethics-frame share across the coded sample.',
+  fn: (coverage, messengers) => {
+    const navy = new Set(messengers.filter((m) => m.camp === 'Navy').map((m) => m.name));
+    const coded = coverage.filter((r) => r.sourcesCoded === 'Yes');
+    const has = (r, n) => (r.narratives || '').split(';').map((s) => s.trim()).includes(n);
+    const total = coverage.length;
+    const launchDay = coverage.filter((r) => r.date === '2026-10-06').length;
+    const ethics = coverage.filter((r) => has(r, 'Luckey ethics & Project Meridian')).length;
+    const checked = coverage.filter((r) => r.drpmNamed !== 'Not checked');
+    return [{
+      total,
+      outlets: new Set(coverage.map((r) => r.outlet.replace(' (Opinion)', ''))).size,
+      launchDay,
+      launchShare: total ? Math.round((launchDay / total) * 100) : 0,
+      sourcesCoded: coded.length,
+      navyQuoted: coded.filter((r) => (r.messengers || '').split(';').some((n) => navy.has(n.trim()))).length,
+      drpmChecked: checked.length,
+      drpmNamed: checked.filter((r) => r.drpmNamed === 'Yes').length,
+      ethicsPieces: ethics,
+      ethicsShare: total ? Math.round((ethics / total) * 100) : 0,
+      negative: coverage.filter((r) => r.tone === 'Negative').length
+    }];
+  }
+});
+
+dash.calc('daily', {
+  inputs: ['coverage'],
+  title: 'Pieces per day by tone',
+  description: 'Each day from Sept. 22 to Oct. 20, 2026, with coded pieces counted by tone.',
+  fn: (coverage) => {
+    const out = [];
+    for (let t = Date.UTC(2026, 8, 22); t <= Date.UTC(2026, 9, 20); t += 86400000) {
+      const date = new Date(t).toISOString().slice(0, 10);
+      const day = coverage.filter((r) => r.date === date);
+      out.push({ date, total: day.length,
+        Positive: day.filter((r) => r.tone === 'Positive').length, Neutral: day.filter((r) => r.tone === 'Neutral').length,
+        Mixed: day.filter((r) => r.tone === 'Mixed').length, Negative: day.filter((r) => r.tone === 'Negative').length,
+        outlets: day.map((r) => r.outlet).join('; ') });
+    }
+    return out;
+  }
+});
+
+dash.calc('narratives', {
+  inputs: ['coverage'],
+  title: 'Pieces per frame',
+  description: 'How many pieces carry each frame, and how many lead with it.',
+  fn: (coverage) => {
+    const m = new Map();
+    coverage.forEach((r) => (r.narratives || '').split(';').map((s) => s.trim()).filter(Boolean).forEach((n, i) => {
+      const o = m.get(n) || { narrative: n, pieces: 0, lead: 0 }; o.pieces += 1; if (i === 0) o.lead += 1; m.set(n, o);
+    }));
+    return [...m.values()].sort((a, b) => b.pieces - a.pieces || b.lead - a.lead);
+  }
+});
+
+dash.calc('tonetier', {
+  inputs: ['coverage'],
+  title: 'Tone by outlet tier',
+  description: 'Pieces in each outlet tier, split by tone.',
+  fn: (coverage) => {
+    const m = new Map();
+    coverage.forEach((r) => {
+      const o = m.get(r.tier) || { tier: r.tier, total: 0, Positive: 0, Neutral: 0, Mixed: 0, Negative: 0 };
+      o.total += 1; o[r.tone] = (o[r.tone] || 0) + 1; m.set(r.tier, o);
+    });
+    return [...m.values()].sort((a, b) => b.total - a.total);
+  }
+});
+
+dash.calc('figures', {
+  inputs: ['coverage'],
+  title: 'Dollar figure in the headline',
+  description: 'Pieces whose headline led with each dollar figure.',
+  fn: (coverage) => {
+    const order = ['$3.7B', '$6.6B', '$2.9B', '~$7B', 'None'];
+    return order.map((figure) => ({ figure, pieces: coverage.filter((r) => r.headlineFigure === figure).length }));
+  }
+});
+
+dash.calc('voices', {
+  inputs: ['coverage', 'messengers'],
+  title: 'Pieces quoting each person',
+  description: 'Among pieces coded for sources, how many quote each person, with their camp.',
+  fn: (coverage, messengers) => {
+    const coded = coverage.filter((r) => r.sourcesCoded === 'Yes');
+    return messengers.map((m) => ({ name: m.name, role: m.role, camp: m.camp,
+      pieces: coded.filter((r) => (r.messengers || '').split(';').map((s) => s.trim()).includes(m.name)).length }))
+      .filter((v) => v.pieces > 0)
+      .sort((a, b) => b.pieces - a.pieces || a.name.localeCompare(b.name));
+  }
+});
+
+// ---------- numbers in text ----------
+dash.draw('k', (el) => {
+  const k = dash.data('kpis');
+  if (k.status !== 'ok' || !k.data || !k.data[0]) { el.textContent = '—'; return; }
+  const v = k.data[0][el.dataset.k];
+  el.textContent = v == null ? '—' : String(v);
+});
+
+dash.calc('camps', {
+  inputs: ['coverage', 'messengers'],
+  title: 'Quotes by camp',
+  description: 'Among pieces coded for sources, how many times people from each camp were quoted.',
+  fn: (coverage, messengers) => {
+    const camp = new Map(messengers.map((m) => [m.name, m.camp]));
+    const m = new Map();
+    coverage.filter((r) => r.sourcesCoded === 'Yes').forEach((r) => {
+      (r.messengers || '').split(';').map((s) => s.trim()).filter(Boolean).forEach((n) => {
+        const c = camp.get(n) || 'Other'; m.set(c, (m.get(c) || 0) + 1);
+      });
+    });
+    return [...m.entries()].map(([camp, quotes]) => ({ camp, quotes })).sort((a, b) => b.quotes - a.quotes);
+  }
+});
+
+dash.calc('frametier', {
+  inputs: ['coverage'],
+  title: 'Frames by outlet tier',
+  description: 'Pieces carrying each frame, counted within each outlet tier.',
+  fn: (coverage) => {
+    const out = [];
+    const tiers = [...new Set(coverage.map((r) => r.tier))];
+    const frames = [...new Set(coverage.flatMap((r) => (r.narratives || '').split(';').map((s) => s.trim()).filter(Boolean)))];
+    frames.forEach((narrative) => tiers.forEach((tier) => {
+      out.push({ narrative, tier, pieces: coverage.filter((r) => r.tier === tier && (r.narratives || '').split(';').map((s) => s.trim()).includes(narrative)).length });
+    }));
+    return out;
+  }
+});
+
+</script>
+
+<script>
+// ---------- numbers inside chapter text ----------
+dash.draw('cq', (el) => {
+  const d = dash.data('camps');
+  if (d.status !== 'ok' || !d.data) { el.textContent = '—'; return; }
+  const r = d.data.find((x) => x.camp === el.dataset.camp);
+  el.textContent = r ? String(r.quotes) : '0';
+});
+dash.draw('ft', (el) => {
+  const d = dash.data('frametier');
+  if (d.status !== 'ok' || !d.data) { el.textContent = '—'; return; }
+  const r = d.data.find((x) => x.narrative === el.dataset.n && x.tier === el.dataset.t);
+  el.textContent = r ? String(r.pieces) : '0';
+});
+dash.draw('fg', (el) => {
+  const d = dash.data('figures');
+  if (d.status !== 'ok' || !d.data) { el.textContent = '—'; return; }
+  const r = d.data.find((x) => x.figure === el.dataset.f);
+  el.textContent = r ? String(r.pieces) : '0';
+});
+
+// ---------- the sticky stage ----------
+window.ARS.step = window.ARS.step || 0;
+
+window.ARS.stageKey = function (svg, items, x, y) {
+  let cx = x;
+  items.forEach(([label, color]) => {
+    svg.append('rect').attr('x', cx).attr('y', y - 9).attr('width', 10).attr('height', 10).attr('rx', 2).style('fill', color);
+    const t = svg.append('text').attr('x', cx + 14).attr('y', y).text(label);
+    cx += 14 + t.node().getComputedTextLength() + 14;
+  });
+};
+
+window.ARS.drawUnits = function (svg, W, H, coverage, days, mode) {
+  const A = window.ARS, m = { t: 30, r: 6, b: 30, l: 6 };
+  const x = d3.scaleBand().domain(days).range([m.l, W - m.r]).paddingInner(0.12);
+  const byDay = d3.group(coverage, (r) => r.date);
+  const maxN = d3.max([...byDay.values()], (v) => v.length) || 1;
+  const s = Math.max(4, Math.min(x.bandwidth(), (H - m.t - m.b) / maxN - 2, 18));
+  const base = H - m.b;
+  const toneOrder = { Positive: 0, Neutral: 1, Mixed: 2, Negative: 3 };
+  const navySet = new Set(['Vice Adm. Robert Gaucher', 'Adm. Daryl Caudle']);
+  const isEth = (r) => A.split(r.narratives).includes('Luckey ethics & Project Meridian');
+  const isNavy = (r) => A.split(r.messengers).some((n) => navySet.has(n));
+  const fill = (r) => {
+    if (mode === 'ethics') return isEth(r) ? 'var(--color-warn)' : 'var(--cds-chart-muted)';
+    if (mode === 'navy') return isNavy(r) ? 'var(--cds-chart-status-critical)' : 'var(--cds-chart-muted)';
+    return A.toneColor[r.tone];
+  };
+  const op = (r) => {
+    if (mode === 'day') return r.date === '2026-10-06' ? 1 : 0.45;
+    if (mode === 'ethics') return isEth(r) ? 1 : 0.35;
+    if (mode === 'navy') return r.sourcesCoded === 'Yes' ? 1 : 0.15;
+    return 1;
+  };
+  const tip = A.tip(svg.node().parentNode);
+  byDay.forEach((list, date) => {
+    if (x(date) == null) return;
+    list.slice().sort((a, b) => (mode === 'ethics' ? isEth(b) - isEth(a) : mode === 'navy' ? (isNavy(b) - isNavy(a)) || ((b.sourcesCoded === 'Yes') - (a.sourcesCoded === 'Yes')) : toneOrder[a.tone] - toneOrder[b.tone]))
+      .forEach((r, i) => {
+        svg.append('rect').attr('class', 'ars-unit').attr('x', x(date) + (x.bandwidth() - s) / 2).attr('y', base - (i + 1) * (s + 2))
+          .attr('width', s).attr('height', s).attr('rx', Math.min(3, s / 4)).style('fill', fill(r)).style('opacity', op(r))
+          .on('pointerenter pointermove', (ev) => tip.show(ev, [`${r.outlet} · ${A.apDate(r.date)}`, r.headline, `${r.tone} · ${r.tier}`]))
+          .on('pointerleave', () => tip.hide());
+      });
+  });
+  svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', base + 1).attr('y2', base + 1).style('stroke', 'var(--cds-chart-axis)');
+  days.forEach((dt, i) => { if (i % 7 === 0) svg.append('text').attr('x', x(dt) + x.bandwidth() / 2).attr('y', base + 18).attr('text-anchor', 'middle').text(A.apDate(dt)); });
+  const peakN = (byDay.get('2026-10-06') || []).length;
+  if (mode === 'day' && peakN) svg.append('text').attr('class', 'ars-strong').attr('x', x('2026-10-06') + x.bandwidth() / 2 + s / 2 + 6).attr('y', base - peakN * (s + 2) + 12).text(`${peakN} on Oct. 6`);
+  if (mode === 'ethics') {
+    const mx = x('2026-09-30') + x.bandwidth() / 2;
+    svg.append('line').attr('x1', mx).attr('x2', mx).attr('y1', m.t).attr('y2', base).style('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '3 3');
+    svg.append('text').attr('class', 'ars-strong').attr('x', mx - 4).attr('y', m.t + 12).attr('text-anchor', 'end').text('Project Meridian');
+  }
+  if (mode === 'navy') A.stageKey(svg, [['Quotes the Navy', 'var(--cds-chart-status-critical)'], ['Coded, no Navy quote', 'var(--cds-chart-muted)']], m.l, 16);
+  else if (mode === 'ethics') A.stageKey(svg, [['Raises Luckey ethics', 'var(--color-warn)'], ['Other pieces', 'var(--cds-chart-muted)']], m.l, 16);
+  else A.stageKey(svg, A.TONES.slice(0, 3).map((t) => [t, A.toneColor[t]]), m.l, 16);
+};
+
+window.ARS.drawBars = function (svg, W, H, rows, label, value, color, title) {
+  const m = { t: 34, r: 36, b: 8 };
+  svg.append('text').attr('class', 'ars-strong').attr('x', 0).attr('y', 16).text(title);
+  const probe = svg.append('g'); let lw = 0;
+  rows.forEach((r) => { lw = Math.max(lw, probe.append('text').text(label(r)).node().getComputedTextLength()); });
+  probe.remove();
+  const L = Math.min(lw + 12, W * 0.5);
+  const rowH = Math.min(40, (H - m.t - m.b) / rows.length);
+  const x = d3.scaleLinear().domain([0, d3.max(rows, value) || 1]).range([0, Math.max(30, W - L - m.r)]);
+  rows.forEach((r, i) => {
+    const y = m.t + i * rowH;
+    svg.append('text').attr('x', L - 10).attr('y', y + rowH / 2 + 4).attr('text-anchor', 'end').text(label(r));
+    svg.append('rect').attr('x', L).attr('y', y + rowH * 0.18).attr('height', rowH * 0.64).attr('width', x(value(r))).attr('rx', 3).style('fill', color(r, i));
+    svg.append('text').attr('class', 'ars-strong').attr('x', L + x(value(r)) + 6).attr('y', y + rowH / 2 + 4).text(String(value(r)));
+  });
+};
+
+window.ARS.drawFrames = function (svg, W, H, ft) {
+  const tiers = ['Defense & maritime trade', 'National', 'Maryland local'];
+  const frames = ['Submarine capacity', 'Jobs & Sparrows Point', 'Political credit & taxpayer stake', 'Luckey ethics & Project Meridian'];
+  const get = (n, t) => (ft.find((r) => r.narrative === n && r.tier === t) || { pieces: 0 }).pieces;
+  const m = { t: 40, b: 30 };
+  svg.append('text').attr('class', 'ars-strong').attr('x', 0).attr('y', 16).text('Pieces carrying each frame, by outlet tier');
+  const colW = W / tiers.length;
+  const max = d3.max(ft, (r) => r.pieces) || 1;
+  const rowH = (H - m.t - m.b) / frames.length;
+  const short = { 'Submarine capacity': 'Capacity', 'Jobs & Sparrows Point': 'Jobs', 'Political credit & taxpayer stake': 'Politics', 'Luckey ethics & Project Meridian': 'Ethics' };
+  tiers.forEach((t, j) => {
+    const x0 = j * colW + 4, w = colW - 8;
+    svg.append('text').attr('x', x0).attr('y', m.t - 8).attr('class', 'ars-strong').text(t.replace('Defense & maritime trade', 'Trade'));
+    frames.forEach((f, i) => {
+      const v = get(f, t), y = m.t + i * rowH;
+      const hot = (t === 'Defense & maritime trade' && f === 'Submarine capacity') || (t === 'National' && f === 'Political credit & taxpayer stake') || (t === 'Maryland local' && f === 'Jobs & Sparrows Point');
+      svg.append('rect').attr('x', x0).attr('y', y + 4).attr('width', w).attr('height', rowH - 8).attr('rx', 4)
+        .style('fill', hot ? dash.colors[0] : 'var(--cds-chart-muted)').style('opacity', 0.15 + 0.85 * (v / max));
+      svg.append('text').attr('x', x0 + 8).attr('y', y + rowH / 2 + 4).attr('class', hot ? 'ars-strong' : null).text(`${short[f]} ${v}`);
+    });
+  });
+};
+
+dash.draw('stage', {
+  mount(el) {
+    const chapters = [...document.querySelectorAll('.ars-chapter')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const step = Number(en.target.dataset.step) || 0;
+        chapters.forEach((c) => c.classList.toggle('is-active', c === en.target));
+        if (window.ARS.step !== step) { window.ARS.step = step; dash.draw('stage'); }
+      });
+    }, { root: document, rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    chapters.forEach((c) => io.observe(c));
+    return { io };
+  },
+  update(el) {
+    const A = window.ARS, step = A.step || 0;
+    const cov = dash.data('coverage'), daily = dash.data('daily'), camps = dash.data('camps'), ft = dash.data('frametier'), figs = dash.data('figures');
+    const need = { 0: [cov, daily], 1: [camps], 2: [ft], 3: [cov, daily], 4: [figs], 5: [cov, daily] }[step] || [cov];
+    const bad = need.find((d) => d.status !== 'ok' || !d.data);
+    el.replaceChildren();
+    if (bad) { if (bad.status === 'error') { const p = document.createElement('p'); p.className = 'ars-sub'; p.textContent = 'Failed to load'; el.appendChild(p); } else el.textContent = '—'; return; }
+    const W = el.clientWidth || 500, H = Math.max(260, el.clientHeight || 360);
+    const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('class', 'ars-stage-svg');
+    const labels = ['Pieces per day, by tone', 'Times each camp was quoted', 'Frames by outlet tier', 'Pieces raising the Luckey ethics question', 'Dollar figure leading the headline', 'Pieces quoting a Navy official'];
+    svg.attr('role', 'img').attr('aria-label', labels[step]);
+    if (step === 0 || step === 3 || step === 5) {
+      A.drawUnits(svg, W, H, cov.data, daily.data.map((r) => r.date), step === 0 ? 'day' : step === 3 ? 'ethics' : 'navy');
+    } else if (step === 1) {
+      let ci = 0;
+      const col = camps.data.map((r) => (r.camp === 'Navy' ? 'var(--cds-chart-status-critical)' : 'var(--cds-chart-muted)'));
+      A.drawBars(svg, W, H, camps.data, (r) => r.camp, (r) => r.quotes, (r, i) => col[i], 'Times each camp was quoted');
+    } else if (step === 2) {
+      A.drawFrames(svg, W, H, ft.data);
+    } else if (step === 4) {
+      const rows = figs.data.filter((r) => r.figure !== 'None');
+      A.drawBars(svg, W, H, rows, (r) => r.figure, (r) => r.pieces, (r, i) => dash.colors[i % dash.colors.length], 'Headlines leading with each dollar figure');
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      svg.style('opacity', 0).transition().duration(320).style('opacity', 1);
+    }
+  },
+  unmount(el, made) { if (made && made.io) made.io.disconnect(); }
+});
+
+dash.draw('afterlist', (el) => {
+  const e = dash.data('events');
+  if (e.status !== 'ok') { el.replaceChildren(); return; }
+  el.replaceChildren(...e.data.filter((x) => x.phase !== 'In window').map((ev) => {
+    const li = document.createElement('li'); const b = document.createElement('b');
+    b.textContent = window.ARS.apDate(ev.date) + ' (' + ev.phase.toLowerCase() + '): ';
+    li.append(b);
+    if (ev.url) { const a = document.createElement('a'); a.href = ev.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = ev.event; a.style.color = 'inherit'; li.append(a); }
+    else li.append(document.createTextNode(ev.event));
+    return li;
+  }));
+});
+
+</script>
+
+<script>
+// ---------- tables and filters ----------
+window.ARS.filtered = function (rows) {
+  const f = window.ARS.f;
+  return rows.filter((r) => (!f.tier || r.tier === f.tier) && (!f.tone || r.tone === f.tone) &&
+    (!f.narr || window.ARS.split(r.narratives).includes(f.narr)));
+};
+
+dash.draw('chips', (el) => {
+  const d = dash.data('coverage');
+  el.replaceChildren();
+  if (d.status !== 'ok') return;
+  const A = window.ARS;
+  const groups = [
+    ['Tier', 'tier', [...new Set(d.data.map((r) => r.tier))]],
+    ['Tone', 'tone', A.TONES.filter((t) => d.data.some((r) => r.tone === t))],
+    ['Frame', 'narr', [...new Set(d.data.flatMap((r) => A.split(r.narratives)))]]
+  ];
+  groups.forEach(([lab, key, vals]) => {
+    const row = document.createElement('div'); row.className = 'ars-chiprow';
+    const s = document.createElement('span'); s.textContent = lab; row.appendChild(s);
+    ['All', ...vals].forEach((v) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'ars-chip'; b.textContent = v;
+      const on = v === 'All' ? !A.f[key] : A.f[key] === v;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.onclick = () => { A.f[key] = v === 'All' ? null : v; A.redraw(); };
+      row.appendChild(b);
+    });
+    el.appendChild(row);
+  });
+});
+
+dash.draw('logcount', (el) => {
+  const d = dash.data('coverage');
+  if (d.status !== 'ok') { el.textContent = '—'; return; }
+  const n = window.ARS.filtered(d.data).length;
+  const f = window.ARS.f; const any = f.tier || f.tone || f.narr;
+  el.textContent = any ? `Showing ${n} of ${d.data.length} pieces` : `Showing all ${d.data.length} pieces`;
+});
+
+dash.draw('logrows', (el) => {
+  const d = dash.data('coverage');
+  el.replaceChildren();
+  if (d.status !== 'ok') return;
+  const A = window.ARS;
+  const rows = A.filtered(d.data).slice().sort((a, b) => b.date.localeCompare(a.date) || a.outlet.localeCompare(b.outlet));
+  rows.forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.id;
+    const td = (cls) => { const c = document.createElement('td'); if (cls) c.className = cls; tr.appendChild(c); return c; };
+    const c1 = td('dt'); c1.textContent = A.apDate(r.date);
+    const c2 = td(); c2.textContent = r.outlet;
+    if (r.byline) { const s = document.createElement('span'); s.className = 'ars-basis'; s.textContent = r.byline; c2.appendChild(s); }
+    const c3 = td(); const a = document.createElement('a'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = r.headline; c3.appendChild(a);
+    if (r.dateNote) { const s = document.createElement('span'); s.className = 'ars-basis'; s.textContent = r.dateNote; c3.appendChild(s); }
+    const c4 = td(); c4.textContent = r.tier;
+    const c5 = td(); const p = document.createElement('span'); p.className = 'ars-pill ' + r.tone; p.textContent = r.tone; c5.appendChild(p);
+    const bs = document.createElement('span'); bs.className = 'ars-basis'; bs.textContent = r.toneBasis === 'Full text' ? 'Full text read' : r.toneBasis === 'Headline' ? 'Headline only' : 'Partly read'; c5.appendChild(bs);
+    const c6 = td(); c6.textContent = A.split(r.narratives).join(', ');
+    el.appendChild(tr);
+  });
+  if (!rows.length) {
+    const tr = document.createElement('tr'); const c = document.createElement('td'); c.colSpan = 6; c.textContent = 'No pieces match these filters.'; tr.appendChild(c); el.appendChild(tr);
+  }
+});
+
+dash.draw('facts', (el) => {
+  const d = dash.data('factchecks');
+  el.replaceChildren();
+  if (d.status !== 'ok') return;
+  d.data.slice().sort((a, b) => a.order - b.order).forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.topic;
+    [['topic', true], ['consensus'], ['variants']].forEach(([k, strong]) => {
+      const c = document.createElement('td'); c.textContent = r[k]; if (strong) c.style.fontWeight = 'var(--cds-font-weight-medium)'; tr.appendChild(c);
+    });
+    el.appendChild(tr);
+  });
+});
+</script>
+
+</div>
+</body>
+</html>
